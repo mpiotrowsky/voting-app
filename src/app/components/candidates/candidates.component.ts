@@ -23,9 +23,6 @@ export class CandidatesComponent {
     public dialog: MatDialog,
     private snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-  }
-
   addCandidate(): void {
     const dialogRef = this.dialog.open(AddCandidateDialog, {
       height: '220px',
@@ -33,7 +30,6 @@ export class CandidatesComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if (result && result.name !== '') {
         this.dataService.candidates.push(
           {

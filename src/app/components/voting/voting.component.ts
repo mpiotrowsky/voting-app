@@ -30,9 +30,8 @@ export class VotingComponent {
     }
 
   submit() {
-    let selectedVoter = this.votingForm.get('selectedVoter')?.value;
-    let selectedCandidate = this.votingForm.get('selectedCandidate')?.value;
-    console.log(selectedVoter, selectedCandidate);
+    const selectedVoter = this.votingForm.get('selectedVoter')?.value;
+    const selectedCandidate = this.votingForm.get('selectedCandidate')?.value;
 
     selectedVoter.hasVoted = true;
     selectedCandidate.votes++;

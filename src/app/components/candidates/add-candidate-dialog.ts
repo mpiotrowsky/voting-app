@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MaterialModule } from '../../shared/material.module';
 import { FormsModule } from '@angular/forms';
 
@@ -14,9 +14,7 @@ import { FormsModule } from '@angular/forms';
     name: string = '';
     constructor(
       public dialogRef: MatDialogRef<AddCandidateDialog>,
-      @Inject(MAT_DIALOG_DATA) public data: any,
-    ) {
-    }
+    ) {}
 
 }
   
