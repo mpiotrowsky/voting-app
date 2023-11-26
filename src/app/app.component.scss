@@ -8,10 +8,14 @@
     align-items: center;
 }
 
-.heading-title {
+.app-title {
     font-family: 'Ephesis', cursive;
     font-size: 4em;
-    padding: 24px 8px 8px 8px;
+    padding: 24px 8px;
+}
+
+app-voting {
+    margin-top: 16px;
 }
 
 .main-content {
