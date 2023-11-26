@@ -1,0 +1,67 @@
+.table {
+    border: 1px solid black;
+    width: 320px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    height: 40px;
+    position: relative;
+    &-name {
+        font-weight: 600;
+    }
+}
+
+.add-voter-sign {
+    position: absolute;
+    right: 10px;
+    &:hover {
+    cursor: pointer;
+    }
+}
+
+.voters-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.voters-names {
+    display: flex;
+    flex-basis: 66.66%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.voter-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    &-header {
+        font-weight: 600;
+    }
+}
+
+.voters-statuses {
+    display: flex;
+    flex-basis: 33.33%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.voter-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    &-header {
+        font-weight: 600;
+    }
+}

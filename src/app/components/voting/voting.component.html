@@ -1,1 +1,23 @@
-<h1>Vote!</h1>
+<h1 class="heading-title">Vote!</h1>
+
+<form [formGroup]="votingForm" class="voting-form">
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-select placeholder="I am" formControlName="selectedVoter">
+      <mat-option *ngFor="let voter of voters" [value]="voter" [disabled]="voter.hasVoted">
+        {{ voter.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-select placeholder="I vote for" formControlName="selectedCandidate">
+      <mat-option *ngFor="let candidate of candidates" [value]="candidate">
+        {{ candidate.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="submit()" type="submit" [disabled]="votingForm.invalid">Submit!</button>
+</form>
+
+

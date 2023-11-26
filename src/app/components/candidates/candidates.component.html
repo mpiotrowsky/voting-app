@@ -1,0 +1,25 @@
+<div class="table">
+    <div class="table-header">
+        <div class="table-header-name">Candidates</div>
+        <mat-icon class="add-candidate-sign" aria-hidden="false" aria-label="Add candidate" fontIcon="add_circle_outline" (click)="addCandidate()"></mat-icon>
+    </div>
+
+    <div class="candidates-list">
+
+        <div class="candidates-names">
+            <div class="candidate-name candidate-name-header">Name</div>
+            <div class="candidate-name" *ngFor="let candidate of candidates">
+                {{ candidate.name }}
+            </div>
+        </div>
+    
+        <div class="candidates-statuses">
+            <div class="candidate-status candidate-status-header">Votes</div>
+            <div class="candidate-status" *ngFor="let candidate of candidates">
+                {{ candidate.votes }}
+            </div>
+        </div>
+
+    </div>
+
+</div>

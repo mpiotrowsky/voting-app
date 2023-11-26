@@ -1,0 +1,15 @@
+<h2 mat-dialog-title class="title">Add candidate</h2>
+<mat-dialog-content class="mat-typography dialog-content">
+
+  <form class="form">
+    <mat-form-field class="form-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name" name="name" cdkFocusInitial>
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button [mat-dialog-close]="{ name: name }">Add</button>
+</mat-dialog-actions>
