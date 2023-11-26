@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Voter } from '../shared/voter.interface';
+import { Candidate } from '../shared/candidate.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  public voters = [
+  public voters: Voter[] = [
     {
       name: 'Peppa',
       hasVoted: false,
@@ -16,7 +18,7 @@ export class DataService {
     }
   ];
 
-  public candidates = [
+  public candidates: Candidate[] = [
     {
       name: 'Johny Bravo',
       votes: 2,
