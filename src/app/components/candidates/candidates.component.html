@@ -1,7 +1,9 @@
 <div class="table">
     <div class="table-header">
         <div class="table-header-name">Candidates</div>
-        <mat-icon class="add-candidate-sign" aria-hidden="false" aria-label="Add candidate" fontIcon="add_circle_outline" (click)="addCandidate()"></mat-icon>
+        <button mat-icon-button class="add-candidate-sign" aria-hidden="false" aria-label="Add candidate" (click)="addCandidate()">
+            <mat-icon fontIcon="add_circle_outline"></mat-icon>
+          </button>
     </div>
 
     <table class="candidates-table">

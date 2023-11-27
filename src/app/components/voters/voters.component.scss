@@ -1,5 +1,5 @@
 .table {
-    border: 1px solid black;
+    border: 1px solid #888;
     width: 320px;
 }
 
@@ -7,8 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid black;
-    height: 40px;
+    border-bottom: 1px solid #888;
+    height: 48px;
     position: relative;
     &-name {
         font-weight: 600;

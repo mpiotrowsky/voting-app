@@ -1,7 +1,9 @@
 <div class="table">
     <div class="table-header">
       <div class="table-header-name">Voters</div>
-      <mat-icon class="add-voter-sign" aria-hidden="false" aria-label="Add voter" fontIcon="add_circle_outline" (click)="addVoter()"></mat-icon>
+      <button mat-icon-button class="add-voter-sign" aria-hidden="false" aria-label="Add voter" (click)="addVoter()">
+        <mat-icon fontIcon="add_circle_outline"></mat-icon>
+      </button>
     </div>
   
     <table class="voters-table">

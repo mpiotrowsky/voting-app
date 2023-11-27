@@ -5,7 +5,7 @@ import { MaterialModule } from '../../shared/material.module';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCandidateDialog } from './add-candidate-dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Snackbar } from '../../shared/snackbar';
+import { SnackbarComponent } from '../../shared/snackbar.component';
 import { Candidate } from '../../shared/candidate.interface';
 
 @Component({
@@ -49,7 +49,7 @@ export class CandidatesComponent implements OnInit {
   }
 
   openSnackBar(message: any) {
-    this.snackBar.openFromComponent(Snackbar, {
+    this.snackBar.openFromComponent(SnackbarComponent, {
       data: message,
       duration: 3000,
     });
