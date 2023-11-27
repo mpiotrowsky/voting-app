@@ -21,8 +21,8 @@ export class VotingComponent {
   candidates: Candidate[] = [];
 
   votingForm = this.formBuilder.group({
-    selectedVoter: [{} as Voter, Validators.required],
-    selectedCandidate: [{} as Candidate, Validators.required],
+    selectedVoter: ['', Validators.required],
+    selectedCandidate: ['', Validators.required],
   });
 
   constructor(
@@ -30,7 +30,7 @@ export class VotingComponent {
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar) {
     }
-  
+
   ngOnInit() {
     this.dataService.candidates$.subscribe(data => {
       this.candidates = data;
@@ -41,13 +41,11 @@ export class VotingComponent {
   }
 
   submit() {
-    const selectedVoter = this.votingForm.value.selectedVoter as Voter;
-    const selectedCandidate = this.votingForm.value.selectedCandidate as Candidate;
+    const selectedVoterID = this.votingForm.value.selectedVoter;
+    const selectedCandidateID = this.votingForm.value.selectedCandidate;
 
-    selectedVoter.hasVoted = true;
-    selectedCandidate.votes++;
-    this.dataService.updateVoter(selectedVoter);
-    this.dataService.updateCandidate(selectedCandidate);
+    this.dataService.updateVotingStatus(selectedVoterID as string);
+    this.dataService.updateCandidateVotes(selectedCandidateID as string);
 
     this.votingForm.reset();
     this.openSnackBar('Voted!');
@@ -59,5 +57,4 @@ export class VotingComponent {
       duration: 3000,
     });
   }
-
 }
