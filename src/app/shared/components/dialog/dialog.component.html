@@ -10,6 +10,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="center">
-  <button mat-button [mat-dialog-close]="false">Cancel</button>
-  <button mat-button [mat-dialog-close]="{ name: name }" [disabled]="name === ''">Add</button>
+  <button mat-button id="btn-cancel" [mat-dialog-close]="false">Cancel</button>
+  <button mat-button id="btn-add" [mat-dialog-close]="{ name: name }" [disabled]="name === ''">Add</button>
 </mat-dialog-actions>
