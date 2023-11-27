@@ -19,16 +19,15 @@ export class VotingComponent {
   voters: Voter[] = [];
   candidates: Candidate[] = [];
 
-  votingForm: FormGroup;
+  votingForm = this.formBuilder.group({
+    selectedVoter: [{} as Voter, Validators.required],
+    selectedCandidate: [{} as Candidate, Validators.required],
+  });
 
   constructor(
     private dataService: DataService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar) {
-      this.votingForm = this.formBuilder.group({
-        selectedVoter: ['', Validators.required],
-        selectedCandidate: ['', Validators.required],
-      });
     }
   
   ngOnInit() {
@@ -41,11 +40,13 @@ export class VotingComponent {
   }
 
   submit() {
-    const selectedVoter = this.votingForm.get('selectedVoter')?.value;
-    const selectedCandidate = this.votingForm.get('selectedCandidate')?.value;
+    const selectedVoter = this.votingForm.value.selectedVoter as Voter;
+    const selectedCandidate = this.votingForm.value.selectedCandidate as Candidate;
 
     selectedVoter.hasVoted = true;
     selectedCandidate.votes++;
+    this.dataService.updateVoter(selectedVoter);
+    this.dataService.updateCandidate(selectedCandidate);
 
     this.votingForm.reset();
     this.openSnackBar('Voted!');

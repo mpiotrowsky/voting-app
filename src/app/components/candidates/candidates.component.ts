@@ -41,6 +41,7 @@ export class CandidatesComponent implements OnInit {
         this.dataService.addCandidate({
           name: result.name,
           votes: 0,
+          id: crypto.randomUUID(),
         },)
         this.openSnackBar('Candidate added!');
       }

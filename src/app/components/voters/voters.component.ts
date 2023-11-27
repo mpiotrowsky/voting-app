@@ -40,6 +40,7 @@ export class VotersComponent implements OnInit {
         this.dataService.addVoter({
           name: result.name,
           hasVoted: false,
+          id: crypto.randomUUID(),
         },)
         this.openSnackBar('Voter added!');
       }
