@@ -36,7 +36,7 @@ export class VotingComponent {
       this.candidates = data;
     });
     this.dataService.voters$.subscribe(data => {
-      this.voters = data;
+      this.voters = data.filter(voter => !voter.hasVoted);
     });
   }
 
