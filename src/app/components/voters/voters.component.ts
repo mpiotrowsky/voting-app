@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { MaterialModule } from '../../shared/material.module';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddVoterDialog } from './add-voter-dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Snackbar } from '../../shared/snackbar';
+import { Voter } from '../../shared/voter.interface';
 
 @Component({
   selector: 'app-voters',
@@ -14,16 +15,19 @@ import { Snackbar } from '../../shared/snackbar';
   templateUrl: './voters.component.html',
   styleUrl: './voters.component.scss'
 })
-export class VotersComponent {
-  voters = this.dataService.voters;
+export class VotersComponent implements OnInit {
+  voters: Voter[] = [];
 
   constructor(
     private dataService: DataService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.dataService.voters$.subscribe(data => {
+        this.voters = data;
+      });
+    }
 
   addVoter(): void {
     const dialogRef = this.dialog.open(AddVoterDialog, {
@@ -33,12 +37,10 @@ export class VotersComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.name !== '') {
-        this.dataService.voters.push(
-          {
-            name: result.name,
-            hasVoted: false,
-          },
-        );
+        this.dataService.addVoter({
+          name: result.name,
+          hasVoted: false,
+        },)
         this.openSnackBar('Voter added!');
       }
     });

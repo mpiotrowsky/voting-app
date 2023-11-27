@@ -5,6 +5,8 @@ import { MaterialModule } from '../../shared/material.module';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Snackbar } from '../../shared/snackbar';
+import { Voter } from '../../shared/voter.interface';
+import { Candidate } from '../../shared/candidate.interface';
 
 @Component({
   selector: 'app-voting',
@@ -14,8 +16,8 @@ import { Snackbar } from '../../shared/snackbar';
   styleUrl: './voting.component.scss'
 })
 export class VotingComponent {
-  voters = this.dataService.voters;
-  candidates = this.dataService.candidates;
+  voters: Voter[] = [];
+  candidates: Candidate[] = [];
 
   votingForm: FormGroup;
 
@@ -28,6 +30,15 @@ export class VotingComponent {
         selectedCandidate: ['', Validators.required],
       });
     }
+  
+  ngOnInit() {
+    this.dataService.candidates$.subscribe(data => {
+      this.candidates = data;
+    });
+    this.dataService.voters$.subscribe(data => {
+      this.voters = data;
+    });
+  }
 
   submit() {
     const selectedVoter = this.votingForm.get('selectedVoter')?.value;
