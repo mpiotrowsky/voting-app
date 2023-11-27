@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../shared/services/data.service';
 import { MaterialModule } from '../../shared/material.module';
 import { MatDialog } from '@angular/material/dialog';
-import { AddCandidateDialog } from './add-candidate-dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarComponent } from '../../shared/snackbar.component';
-import { Candidate } from '../../shared/candidate.interface';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
+import { Candidate } from '../../shared/interfaces/candidate.interface';
+import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-candidates',
@@ -31,9 +31,12 @@ export class CandidatesComponent implements OnInit {
   }
 
   addCandidate(): void {
-    const dialogRef = this.dialog.open(AddCandidateDialog, {
+    const dialogRef = this.dialog.open(DialogComponent, {
       height: '220px',
       width: '360px',
+      data: {
+        title: 'Candidate'
+      },
     });
 
     dialogRef.afterClosed().subscribe(result => {

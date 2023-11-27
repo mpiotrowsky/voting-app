@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../shared/services/data.service';
 import { MaterialModule } from '../../shared/material.module';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarComponent } from '../../shared/snackbar.component';
-import { Voter } from '../../shared/voter.interface';
-import { Candidate } from '../../shared/candidate.interface';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
+import { Voter } from '../../shared/interfaces/voter.interface';
+import { Candidate } from '../../shared/interfaces/candidate.interface';
 
 @Component({
   selector: 'app-voting',

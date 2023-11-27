@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../shared/services/data.service';
 import { MaterialModule } from '../../shared/material.module';
 import { MatDialog } from '@angular/material/dialog';
-import { AddVoterDialog } from './add-voter-dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarComponent } from '../../shared/snackbar.component';
-import { Voter } from '../../shared/voter.interface';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
+import { Voter } from '../../shared/interfaces/voter.interface';
+import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-voters',
@@ -30,9 +30,12 @@ export class VotersComponent implements OnInit {
     }
 
   addVoter(): void {
-    const dialogRef = this.dialog.open(AddVoterDialog, {
+    const dialogRef = this.dialog.open(DialogComponent, {
       height: '220px',
       width: '360px',
+      data: {
+        title: 'Voter'
+      },
     });
 
     dialogRef.afterClosed().subscribe(result => {

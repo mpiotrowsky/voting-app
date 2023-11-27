@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Voter } from '../shared/voter.interface';
-import { Candidate } from '../shared/candidate.interface';
+import { Voter } from '../interfaces/voter.interface';
+import { Candidate } from '../interfaces/candidate.interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
