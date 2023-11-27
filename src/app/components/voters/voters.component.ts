@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../shared/services/data.service';
-import { MaterialModule } from '../../shared/material.module';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
 import { Voter } from '../../shared/interfaces/voter.interface';
 import { DialogComponent } from '../../shared/components/dialog/dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-voters',
   standalone: true,
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule],
   templateUrl: './voters.component.html',
   styleUrl: './voters.component.scss'
 })
