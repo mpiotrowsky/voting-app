@@ -23,45 +23,19 @@
     }
 }
 
-.candidates-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+th, td {
+    height: 40px;
+    text-align: center;
 }
 
-.candidates-names {
-    display: flex;
-    flex-basis: 66.66%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.candidates-table {
+    width: 100%;
 }
 
 .candidate-name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 100%;
-    &-header {
-        font-weight: 600;
-    }
-}
-
-.candidates-statuses {
-    display: flex;
-    flex-basis: 33.33%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 66.6%;
 }
 
 .candidate-status {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    &-header {
-        font-weight: 600;
-    }
+    width: 33.3%;
 }

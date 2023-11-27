@@ -1,26 +1,24 @@
 <div class="table">
     <div class="table-header">
-        <div class="table-header-name">Voters</div>
-        <mat-icon class="add-voter-sign" aria-hidden="false" aria-label="Add voter" fontIcon="add_circle_outline" (click)="addVoter()"></mat-icon>
+      <div class="table-header-name">Voters</div>
+      <mat-icon class="add-voter-sign" aria-hidden="false" aria-label="Add voter" fontIcon="add_circle_outline" (click)="addVoter()"></mat-icon>
     </div>
-
-    <div class="voters-list">
-
-        <div class="voters-names">
-            <div class="voter-name voter-name-header">Name</div>
-            <div class="voter-name" *ngFor="let voter of voters">
-                {{ voter.name }}
-            </div>
-        </div>
-    
-        <div class="voters-statuses">
-            <div class="voter-status voter-status-header">Has voted</div>
-            <div class="voter-status" *ngFor="let voter of voters">
-                <mat-icon *ngIf="voter.hasVoted" class="" aria-hidden="false" aria-label="Voted" fontIcon="check"></mat-icon>
-                <mat-icon *ngIf="!voter.hasVoted" class="" aria-hidden="false" aria-label="Voted" fontIcon="close"></mat-icon>
-            </div>
-        </div>
-
-    </div>
-
-</div>
+  
+    <table class="voters-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Has voted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let voter of voters">
+          <td class="voter-name">{{ voter.name }}</td>
+          <td class="voter-status">
+            <mat-icon *ngIf="voter.hasVoted" aria-hidden="false" aria-label="Voted" fontIcon="check"></mat-icon>
+            <mat-icon *ngIf="!voter.hasVoted" aria-hidden="false" aria-label="Not voted" fontIcon="close"></mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
